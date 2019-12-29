@@ -1,5 +1,11 @@
-p {
+h1 {
 	color: red;
 	text-decoration: underline;
 	font-size: 40px;
+}
+
+p {
+	color: blue;
+	font-size: 40px;
+	font-weight: bold;
 }
