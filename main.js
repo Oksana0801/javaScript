@@ -1,116 +1,77 @@
-// ПОСТРОЕНИЕ ТРЕУГОЛЬНИКА В ЦИКЛЕ
-
-let triagle = '#';
-while(triagle.length <= 7){
-	console.log(triagle);
-	triagle += '#';	
-}
-
-// FizzBuzz
-
-for(let i = 1; i<=100; i++){
-	if(i%3==0 && i%5==0){
-		console.log('FizzBuzz');
-	} else if(i%3==0){
-		console.log('Fizz');
-	} else if(i%5==0){
-		console.log('Buzz');
-	} else {console.log(i);
-	}
-}
-
-
-//ШАХМАТНАЯ ДОСКА
-let size = 5;
-let chess;
-let result = ' ';
-//console.log(chess.length);
-for(let i = 0; i < size; i++){
-	if (i == 0){
-		chess='#';
-		while(chess.length < size - 1){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-	} else if (i % 2 == 0){
-		chess=' ';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += '#';
-			} else {
-				chess += ' ';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-
-	} else {
-		chess = '#';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	result += chess;
-	}
-}
-console.log(result);
-
-// МИНИМУМ
+// 20-01-2020 str in - 121
+// OBJECTS Borisov   OBJECTS Borisov   OBJECTS Borisov   OBJECTS Borisov   OBJECTS Borisov
+//laba 4-1
 /*
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
+let book1 = {};
+book1.title = 'Веселый молочник';
+book1.pubYear = 2019;
+book1.price = 125;
+
+let book2 = {title: 'Добрый колбасник', pubYear: 2020, price: 333};
+
+for (let key in book1){
+	console.log(key + ':' + book1[key]);
 }
-alert(min(8, 15));
-*/
 
-//МИНИМУМ ++
+for (let key in book2){
+	console.log(`${key} : ${book2[key]}`);
+}*/
 
-let num1 = Number(prompt('введите первое число для сравнения'));
-let num2 = Number(prompt('введите второе число для сравнения'));
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
-}
-alert(min(num1, num2));
-
-
-// РЕКУРСИЯ
+//laba 4-2
 /*
-function isEven(n){
-	if(n < 0) n = -n;
-	if(n === 0) {
-		return true;
-	} else if (n === 1) {
-		return false;
-	} else {
-		return isEven(n-2);  
-	}
+book1.show = function(){
+	console.log(`назание: ${this.title} \nстоимость: ${this.price} руб. `);
+};
+//book1.show();
+function bookShow(){
+	console.log(`назание: ${this.title} \nстоимость: ${this.price} руб. `);
 }
-console.log(isEven(2));
+book2.show = bookShow;
+book2.show();
 */
-
-// ПОДСЧЕТ БУКВ
+// OBJECT Haverbeke   OBJECT Haverbeke   OBJECT Haverbeke   OBJECT Haverbeke   OBJECT Haverbeke 
+// range sum
 /*
-let countChar = function (str, letter){
-	let counter = 0;
-	for(let i = 0; i < str.length; i++ ){
-		if(str[i] === letter) counter += 1;
+function rangeN(start, end, step = 1){
+	let arrNumb = [];
+	for(let i = start; i <= end; i += step){
+		arrNumb.push(i);
 	}
-	return counter;
+	return arrNumb;
 }
-console.log(countChar('Мой муж лучший муж на свете', 'у'));
-
-function countBs(str){
-	return countChar (str, "В"); 
-}
-
-console.log(countBs('Вышел Вова Во дВор.'));
+console.log(rangeN(10, 20, 2));
 */
+/*
+function amount(arr){
+	let sumArr = 0; 
+	for(let i=0; i < arr.length; i++){
+		sumArr += arr[i];
+	}
+	return sumArr;
+}*/
+//console.log(amount(arrNumber));
+//Array in reverse order
+// create a new array
+let array = ['апельсин', 'банан','вишня','голубика','душица'];
+/*
+function  reverseArray(arr){
+	let newArr=[];
+	for(let i=0; i<arr.length; i++){
+		newArr.unshift(arr[i]);
+	}
+	return newArr;
+}
+let newArray = reverseArray(array);
+console.log(newArray);
+console.log(array);
+*/
+function  reverseArrayinPlace (arr){
+	for(let i = 0; i<arr.length; i++){
+		let element = arr[0];
+		arr.shift;
+		
+	}
+	return arr;
+}
+console.log(reverseArrayinPlace(array));
+//console.log(array);
