@@ -119,7 +119,7 @@ function nth(list, n) {
 console.log(nth(arrayToList([10, 20, 30]), 1));
 */
 //Сравнение примитивов и глубокое сравнение объектов;
-
+/*
 function  deepEqual(val1, val2){
 	if(val1 === NaN || val2 === NaN){
 		return false;
@@ -164,4 +164,41 @@ function  deepEqual(val1, val2){
 }
 let obj = {here: {is: "an"}, object: 2};
 
-console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+console.log(deepEqual(obj, {here: {is: "an"}, object: 3}));
+*/
+// ЗАДАЧИ НА РЕКУРСИЮ
+/*
+function foo(a, b){
+	if(a==b){
+		return b;
+	} else if(a<b){
+		return 	foo(a, b-1) + ' ' + b;
+	} else {
+		return foo(a, b+1) + ' ' + b;
+	}
+	
+}
+
+console.log(foo(5, 1));
+*/
+// Аккерман
+/*
+function foo(m, n){
+	if(m==0){
+		return n+1;
+	} else if(m > 0 && n==0){
+		return foo(m-1, 1);
+	} else if (m > 0 && n>0){
+		return foo(m-1, foo(m, n-1));
+	} else{
+		return "Не получилось";
+	}
+}
+
+console.log(foo(3, 2));
+*/
+const arr = [1, 10, 15, 25, 10];
+
+arr.forEach(function(item, index, array){
+	console.log(item);
+});
