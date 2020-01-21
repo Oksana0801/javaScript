@@ -197,8 +197,22 @@ function foo(m, n){
 
 console.log(foo(3, 2));
 */
-const arr = [1, 10, 15, 25, 10];
-
+const arrN = [1, 10, 15, 25, 10];
+/*
 arr.forEach(function(item, index, array){
-	console.log(item);
+	console.log(item, index, array);
+});
+*/
+function forEAch(arr, foo){
+	if(typeof arr !== 'object'){
+		return "Требуется массив";
+	}
+	for(let i = 0; i < arr.length; i++){
+		foo(arr[i], i, arr);
+	}
+
+}
+
+forEAch(arrN, function(item, index, array){
+	console.log(item, index, array);
 });
