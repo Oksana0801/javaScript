@@ -150,36 +150,9 @@ function  deepEqual(val1, val2){
 				if(Object.keys(list1).length !== Object.keys(list2).length){
 				return false;
 				} else {
-					let propList1 = [];
-					for(let prop in list1){
-						propList1.push(prop);		
-					}
-					let propList2 = [];
-					for(let prop in 2){
-						propList2.push(prop);		
-					}
-					for(let i=0; i < propList1.length; i++){
-						if (propList1[i] !== propList2[i]){
+					for(let key in list1){
+						if(!Object.keys(list2).includes(key) || !deepEqual(list1[key],list2[key])){
 							return false;
-						} else{
-							let valList1 = [];
-							for(let prop in list1){
-								valList1.push(list1[prop]);		
-							}
-							let valList2 = [];
-							for(let prop in list2){
-								valList2.push(list2[prop]);		
-							}
-							for(let i=0; i < valList1.length; i++){
-								if (valList1[i] !== valList2[i]){
-									return false;
-								} else {
-									if(toSeeList(list1, list2) !== toSeeList(list1[prop], list2[prop])){
-										return false;
-									}
-								}
-							}
-		
 						}
 					}
 				}
@@ -189,8 +162,6 @@ function  deepEqual(val1, val2){
 		return toSeeList (val1, val2);
 	}
 }
+let obj = {here: {is: "an"}, object: 2};
 
-man1 = [2];
-man2 = [1];
-
-console.log(deepEqual(null, null));
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
