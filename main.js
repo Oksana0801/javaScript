@@ -1,116 +1,176 @@
-// ПОСТРОЕНИЕ ТРЕУГОЛЬНИКА В ЦИКЛЕ
+//let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let triagle = '#';
-while(triagle.length <= 7){
-	console.log(triagle);
-	triagle += '#';	
-}
-
-// FizzBuzz
-
-for(let i = 1; i<=100; i++){
-	if(i%3==0 && i%5==0){
-		console.log('FizzBuzz');
-	} else if(i%3==0){
-		console.log('Fizz');
-	} else if(i%5==0){
-		console.log('Buzz');
-	} else {console.log(i);
+// My forEach 
+/*
+function forEAch(arr, foo){
+	if(typeof arr !== 'object'){
+		return "Вы передали не массив!";
+	}
+	for(let i = 0; i<arr.length; i++){
+		foo(arr[i], i, arr);
 	}
 }
 
-
-//ШАХМАТНАЯ ДОСКА
-let size = 5;
-let chess;
-let result = ' ';
-//console.log(chess.length);
-for(let i = 0; i < size; i++){
-	if (i == 0){
-		chess='#';
-		while(chess.length < size - 1){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-	} else if (i % 2 == 0){
-		chess=' ';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += '#';
-			} else {
-				chess += ' ';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-
-	} else {
-		chess = '#';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	result += chess;
+forEAch(myArray, function(item, index, array){
+	console.log(item, index, array);
+});
+*/
+//=================================================
+// My filter
+/*
+function Filter(arr, foo){
+	if(typeof arr !== 'object'){
+		return "Вы передали не массив!";
 	}
+	let result = [];
+	for(let i=0; i < arr.length; i++){
+		
+		if (foo(arr[i])){
+			result.push(arr[i]);
+		}
+	}
+	return result;
 }
+
+let newArray = Filter(myArray, function(value){
+	  return value > 5;
+});
+
+console.log(newArray);
+*/
+// ===========================
+// MAP
+/*
+let heroes = ['odysseus', 'perseus', 'tesey'];
+	
+function myMap(array, foo){
+	if(typeof array !== 'object'){
+		return "Вы передали не массив!";
+	}
+	result = [];
+	for(let name of array){
+		result.push(foo(name));
+	}
+	return result;
+}
+	
+let bigHerous = myMap(heroes, item => item.toUpperCase());
+
+console.log(bigHerous);
+*/
+//====================================
+// sort
+
+/*
+let numberArr = [5, 100, -3, 0, 1, -1, 4, 2, -10];
+let stringArr = ['козёл','осёл','косолапый мишка'];
+
+function mySort(arr, foo){
+	
+	for(let i = 0; i <= arr.length-1; i++){
+		
+		for(let k = 0; k < arr.length-(1+i); k++){
+			if(foo(arr[k], arr[k+1])){
+				let spare = arr[k];
+				arr[k] = arr[k+1];
+				arr[k+1] = spare;
+			}
+			//console.log(numberArr); 
+		}
+	}
+	return arr;
+}
+
+let sortedOut = mySort(stringArr, function(a, b){
+	return a > b;
+});
+console.log(sortedOut);
+*/
+//====================================
+//every/some
+/*
+let numberArr = [-5, -100, -3, 0, -1, -1, -4, -2, -10];
+let stringArr = ['козёл','осёл','косолапый мишка'];
+
+function myEvery(arr, foo){
+	for(let i = 0; i < arr.length; i++){
+		if(!foo(arr[i])){
+			return false;
+		}
+	}
+	return true;
+}
+let result = myEvery(numberArr, function(value){
+	return (value < 4);
+});
+
 console.log(result);
 
-// МИНИМУМ
-/*
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
+function mySome(arr, foo){
+	for(let i = 0; i < arr.length; i++){
+		if(foo(arr[i])){
+			return true;
+		}
+	}
+	return false;
 }
-alert(min(8, 15));
+let result2 = mySome(numberArr, function(value){
+	return (value < 4);
+});
+
+console.log(result2);
 */
+//==============================================
+//reduse/reduseRight
 
-//МИНИМУМ ++
-
-let num1 = Number(prompt('введите первое число для сравнения'));
-let num2 = Number(prompt('введите второе число для сравнения'));
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
-}
-alert(min(num1, num2));
-
-
-// РЕКУРСИЯ
+let myArray = [1, 2, 3, 4, 5];
 /*
-function isEven(n){
-	if(n < 0) n = -n;
-	if(n === 0) {
-		return true;
-	} else if (n === 1) {
-		return false;
+function myReduce(arr, foo, initialValue){
+	let summa = 0;
+	if(initialValue == undefined){
+		summa = arr[0];
+		
+		for(let i = 1; i < arr.length; i++){
+			summa = foo(summa, arr[i]);
+		}
 	} else {
-		return isEven(n-2);  
+		summa = initialValue;
+		
+		for(let i = 0; i < arr.length; i++){
+			summa = foo(summa, arr[i]);
+		}
 	}
+	return summa;
 }
-console.log(isEven(2));
+
+var result = myReduce(myArray, function(sum, current) {
+	return sum + current;
+  }, );
+
+  console.log(result);
 */
 
-// ПОДСЧЕТ БУКВ
-/*
-let countChar = function (str, letter){
-	let counter = 0;
-	for(let i = 0; i < str.length; i++ ){
-		if(str[i] === letter) counter += 1;
+
+function myRightReduce(arr, foo, initialValue){
+	let summa = 0;
+	if(initialValue == undefined){
+		summa = arr[arr.length-1];
+		
+		for(let i = arr.length - 2; i >= 0; i--){
+			summa = foo(summa, arr[i]);
+		}
+	} else {
+		summa = initialValue;
+		
+		for(let i = arr.length - 1; i >= 0; i--){
+			summa = foo(summa, arr[i]);
+		}
 	}
-	return counter;
-}
-console.log(countChar('Мой муж лучший муж на свете', 'у'));
-
-function countBs(str){
-	return countChar (str, "В"); 
+	return summa;
 }
 
-console.log(countBs('Вышел Вова Во дВор.'));
-*/
+var result = myRightReduce(myArray, function(sum, current) {
+	return sum + current;
+	}, 8);
+
+	console.log(result);	
