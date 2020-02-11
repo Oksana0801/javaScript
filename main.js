@@ -1,116 +1,118 @@
-// ПОСТРОЕНИЕ ТРЕУГОЛЬНИКА В ЦИКЛЕ
 
-let triagle = '#';
-while(triagle.length <= 7){
-	console.log(triagle);
-	triagle += '#';	
-}
-
-// FizzBuzz
-
-for(let i = 1; i<=100; i++){
-	if(i%3==0 && i%5==0){
-		console.log('FizzBuzz');
-	} else if(i%3==0){
-		console.log('Fizz');
-	} else if(i%5==0){
-		console.log('Buzz');
-	} else {console.log(i);
-	}
-}
-
-
-//ШАХМАТНАЯ ДОСКА
-let size = 5;
-let chess;
-let result = ' ';
-//console.log(chess.length);
-for(let i = 0; i < size; i++){
-	if (i == 0){
-		chess='#';
-		while(chess.length < size - 1){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-	} else if (i % 2 == 0){
-		chess=' ';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += '#';
-			} else {
-				chess += ' ';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-
-	} else {
-		chess = '#';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	result += chess;
-	}
-}
-console.log(result);
-
-// МИНИМУМ
 /*
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
+function multiply(a, b){
+  a * b;
 }
-alert(min(8, 15));
+  
+console.log(multiply(2, 3));
 */
-
-//МИНИМУМ ++
-
-let num1 = Number(prompt('введите первое число для сравнения'));
-let num2 = Number(prompt('введите второе число для сравнения'));
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
-}
-alert(min(num1, num2));
-
-
-// РЕКУРСИЯ
+//=======================================================================
+//let like = []; // must be "no one likes this"
+//let like = ["Peter"]; // must be "Peter likes this"
+//let like = ["Jacob", "Alex"]; // must be "Jacob and Alex like this"
+// let like = ["Max", "John", "Mark"]; // must be "Max, John and Mark like this"
+// let like = ["Alex", "Jacob", "Mark", "Max", "Kurt", "Philip"]; // must be "Alex, Jacob and 2 others like this"
 /*
-function isEven(n){
-	if(n < 0) n = -n;
-	if(n === 0) {
-		return true;
-	} else if (n === 1) {
-		return false;
-	} else {
-		return isEven(n-2);  
-	}
+function likes(names){
+     if(names.length === 0){
+      return "no one likes this";
+    } else if(names.length === 1){
+      return `${names} like this`;
+    } else if (names.length === 2){
+      return `${names[0]} and ${names[1]} like this`;
+    } else if (name.length === 3){
+      return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+    } else {
+      return  `${names[0]}, ${names[1]} and ${names.length-2} oters like this`;    
+    }
 }
-console.log(isEven(2));
-*/
 
-// ПОДСЧЕТ БУКВ
+console.log(likes(like));
+*/
+//================================================
 /*
-let countChar = function (str, letter){
-	let counter = 0;
-	for(let i = 0; i < str.length; i++ ){
-		if(str[i] === letter) counter += 1;
-	}
-	return counter;
-}
-console.log(countChar('Мой муж лучший муж на свете', 'у'));
-
-function countBs(str){
-	return countChar (str, "В"); 
-}
-
-console.log(countBs('Вышел Вова Во дВор.'));
+let array = [1, 2, 3, 4, 5];
+let array3 = [1];
+let array2 = ["Max", "John", "Mark"];
+let arr = ['t','e','s','t']
 */
+// for(let i = 0; i < a.length; i++){
+//     if(a[i] === x){
+//       return true;
+//     } 
+//   }
+//   return false;
+/*
+let counter = 0;
+function check(a, x){
+  if(counter < a.length){
+    if(a[counter] === x){
+      return true;
+    } else {
+      return check(a, x, ++counter);
+    }
+  }
+  return false;
+}
+
+console.log(check(array, 3));
+*/
+//=============================
+/*
+let string = "This website is for losers LOL!";
+let string2 = "No offense but, \nYour writing is among the worst I\'ve ever read";
+let string3 = 'What are you, a communist?'
+function disemvowel(str) {
+  let vowels = ['a', 'A', 'e', 'E', 'q', 'Q', 'y', 'Y', 'u', 'U', 'o', 'O', 'i', 'I'];
+  //console.log(str);
+  str = str.split('');
+  //console.log(str);
+    for(let i = str.length; 0 < i; i--){
+      for(let k = 0; k < vowels.length; k++ ){
+        if(str[i] === vowels[k]) {
+          str.splice(i, 1);
+        }
+      }
+    }
+  return str.join('');
+}
+
+console.log(disemvowel(string3));
+*/
+// секундомер
+
+function SW(){
+  let startTime, endTime, running, duration = 0;
+
+  this.star = function(){
+    if(running){
+      throw new Error ('SW has already started.')}
+    running = true;
+    startTime = new Date();
+
+  };
+
+  this.end = function(){
+    if(!running){
+      throw new Error ('SW is not started.')
+    }
+    running = false;
+    endTime = new Date();
+    const seconds = (endTime.getTime() - startTime.getTime())/1000;
+    duration += seconds;
+
+  };
+
+  this.reset = function(){
+    startTime = null;
+    endTime = null;
+    running = false;
+    duration = 0;
+
+  };
+  Object.defineProperty(this, 'duration', {
+    get: function(){
+      return duration;
+    }
+  })
+}
