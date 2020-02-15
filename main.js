@@ -81,38 +81,101 @@ console.log(disemvowel(string3));
 */
 // секундомер
 
-function SW(){
-  let startTime, endTime, running, duration = 0;
+// function SW(){
+//   let startTime, endTime, running, duration = 0;
 
-  this.star = function(){
-    if(running){
-      throw new Error ('SW has already started.')}
-    running = true;
-    startTime = new Date();
+//   this.star = function(){
+//     if(running){
+//       throw new Error ('SW has already started.')}
+//     running = true;
+//     startTime = new Date();
 
-  };
+//   };
 
-  this.end = function(){
-    if(!running){
-      throw new Error ('SW is not started.')
-    }
-    running = false;
-    endTime = new Date();
-    const seconds = (endTime.getTime() - startTime.getTime())/1000;
-    duration += seconds;
+//   this.end = function(){
+//     if(!running){
+//       throw new Error ('SW is not started.')
+//     }
+//     running = false;
+//     endTime = new Date();
+//     const seconds = (endTime.getTime() - startTime.getTime())/1000;
+//     duration += seconds;
 
-  };
+//   };
 
-  this.reset = function(){
-    startTime = null;
-    endTime = null;
-    running = false;
-    duration = 0;
+//   this.reset = function(){
+//     startTime = null;
+//     endTime = null;
+//     running = false;
+//     duration = 0;
 
-  };
-  Object.defineProperty(this, 'duration', {
-    get: function(){
-      return duration;
-    }
-  })
-}
+//   };
+//   Object.defineProperty(this, 'duration', {
+//     get: function(){
+//       return duration;
+//     }
+//   })
+// }
+//============================================
+// NAVIGATOR
+// const walk = ['n','s','n','s','n','s','n','s','n','s'];
+
+// function isValidWalk(walk) {
+//   let n = 0, s = 0, w = 0, e = 0;
+//   for(let i = 0; i < walk.length; i++){
+//     switch (walk[i]){
+//       case 'n' : n += 1;
+//       break;
+//       case 's' : s += 1;
+//       break;
+//       case 'w' : w += 1;
+//       break;
+//       case 'e' : e += 1;
+//       break;
+//     } 
+//   }
+//   if(walk.length === 10 && n === s && w===e){
+//     return true;
+//   }
+//   return false;
+// }
+
+// console.log(isValidWalk(walk));
+// ==========================================
+// SUMM NUMBER
+
+// function getSum( a, b ){
+//   let sum = 0;
+//   if (a > b){
+//     let x = b;
+//     b = a;
+//     a = x;
+//   }
+//   if(a === b) {
+//     return a;
+//   }
+//   for(let i = a; i <= b; i++){
+//     sum += i;
+//   }
+//   return sum;
+// }
+
+// console.log(getSum(0, -1));
+// ==============================================
+// след число дя квадратного корня
+
+// function findNextSquare(sq) {
+//   let square = Math.sqrt(sq);
+//   if(!Number.isInteger(square)){
+//     return -1;
+//   }
+//   if(square % 2 !== 0 ){
+//     square += 1;
+//     return Math.pow(square, 2);
+//   }
+//   return sq;
+// }
+
+// console.log(findNextSquare(625));
+// =========================================
+// 
