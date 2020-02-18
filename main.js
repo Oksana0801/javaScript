@@ -1,116 +1,155 @@
-// ПОСТРОЕНИЕ ТРЕУГОЛЬНИКА В ЦИКЛЕ
+// function extend(child, parent){ //промежуточная функция наследования
+// child.prototype = Object.create(parent.prototype);
+// child.prototype.constructor = child;
+// }
 
-let triagle = '#';
-while(triagle.length <= 7){
-	console.log(triagle);
-	triagle += '#';	
-}
+// function Shape(color){
+//    this.color = color
+// }
 
-// FizzBuzz
+// Shape.prototype.duplicate = function(){
+//   console.log('duplicate');
+// }
 
-for(let i = 1; i<=100; i++){
-	if(i%3==0 && i%5==0){
-		console.log('FizzBuzz');
-	} else if(i%3==0){
-		console.log('Fizz');
-	} else if(i%5==0){
-		console.log('Buzz');
-	} else {console.log(i);
-	}
-}
+// function Circle(radius, color){
+//  Shape.call(color);
+//  this.radius = radius;
+// }
 
+// extend(Circle, Shape);
 
-//ШАХМАТНАЯ ДОСКА
-let size = 5;
-let chess;
-let result = ' ';
-//console.log(chess.length);
-for(let i = 0; i < size; i++){
-	if (i == 0){
-		chess='#';
-		while(chess.length < size - 1){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	 result += chess;
-	} else if (i % 2 == 0){
-		chess=' ';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += '#';
-			} else {
-				chess += ' ';
-			}
-		}
-		chess += '\n';
-	 result += chess;
+// Circle.prototype.duplicate = function(){
+//   console.log('duplicate circle');
+// }
 
-	} else {
-		chess = '#';
-		while(chess.length < size){
-			if(chess.length % 2 !== 0){
-				chess += ' ';
-			} else {
-				chess += '#';
-			}
-		}
-		chess += '\n';
-	result += chess;
-	}
-}
-console.log(result);
+// function Square(){
 
-// МИНИМУМ
+// }
+
+// extend(Square, Shape);
+// Square.prototype.duplicate = function(){
+//   console.log('duplicate square');
+// }
+
+// const shapes = [
+//   new Circle(),
+//   new Square
+// ];
+
+// for(let shape of shapes){
+// shape.duplicate();
+// }
+
+//MIXIM консолидация assign
 /*
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
+const canEat = {
+  eat: function(){
+    this.hanger--;
+    console.log('eating');
+  }
+};
+
+const canWalk = {
+  walk: function(){
+    console.log('walking');
+  }
+};
+
+function Person(){
+
 }
-alert(min(8, 15));
+Object.assign(Person.prototype, canEat, canWalk);
+const person = new Person;
+console.log(person);
 */
+//=========================================
 
-//МИНИМУМ ++
+// function HtmlElement (){
+//   this.click = function(){
+//     console.log('clicked');
+//   }
+// }
+// HtmlElement.prototype.focus = function(){
+//   console.log('focused');
+// }
 
-let num1 = Number(prompt('введите первое число для сравнения'));
-let num2 = Number(prompt('введите второе число для сравнения'));
-function min(val1, val2){
-	return (val1 < val2) ? val1 : val2;
+// function HtmlSelectElement(items = []){
+//   this.items = items;
+//   this.addItem = function(item){
+//     return this.items.push(item);
+//   }
+//   this.removeItem = function(item){
+//    return this.items.splice(this.items.indexOf(item), 1);
+//   }
+//   //HtmlElement.call(this);
+// }
+
+// //HtmlSelectElement.prototype = Object.create(HtmlElement.prototype);
+// //HtmlSelectElement.prototype.constructor = HtmlSelectElement;
+// HtmlSelectElement.prototype = new HtmlElement();
+
+// const s = new HtmlSelectElement();
+
+// const e =  new HtmlElement();
+
+//=============================================
+// GET SET
+
+// function Circle(radius){
+//   this.radius = radius;
+//   let defaultLocation = {x:1, y:1};
+//   Object.defineProperty(this, 'defaultLocation', {
+//     get : function(){
+//       return defaultLocation;
+//     },
+//     set: function (values){
+//       if (!values.x || !values.y)
+//       throw new Error('Invalid location');
+
+//       defaultLocation = values;
+
+//     }
+//   } )
+
+//   this.draw = function(){
+//     console.log('draw');
+//   };
+// }
+
+// const circle = new Circle(10);
+
+//=================================
+// STOPWATCH
+
+function StopWatch(){
+  let startTime, endTime, running, duration = 0;
+  this.start = function(){
+    if (running) 
+    throw new Error('Уже запущен');
+    running = true;
+    startTime = new Date();
+  };
+
+  this.stop = function(){
+    if(!running)
+      throw new Error('еще не запущен');
+    running = false;
+    endTime = new Date();
+    let seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+    duration += seconds;
+  };
+
+  Object.defineProperty(this, 'duration', {
+    get: function(){
+      return duration;
+    }
+  })
+
+  this.reset = function(){
+    startTime = null;
+    endTime = null;
+    duration = 0;
+  }
 }
-alert(min(num1, num2));
 
-
-// РЕКУРСИЯ
-/*
-function isEven(n){
-	if(n < 0) n = -n;
-	if(n === 0) {
-		return true;
-	} else if (n === 1) {
-		return false;
-	} else {
-		return isEven(n-2);  
-	}
-}
-console.log(isEven(2));
-*/
-
-// ПОДСЧЕТ БУКВ
-/*
-let countChar = function (str, letter){
-	let counter = 0;
-	for(let i = 0; i < str.length; i++ ){
-		if(str[i] === letter) counter += 1;
-	}
-	return counter;
-}
-console.log(countChar('Мой муж лучший муж на свете', 'у'));
-
-function countBs(str){
-	return countChar (str, "В"); 
-}
-
-console.log(countBs('Вышел Вова Во дВор.'));
-*/
+let sw = new StopWatch();
