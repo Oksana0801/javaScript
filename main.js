@@ -178,4 +178,111 @@ console.log(disemvowel(string3));
 
 // console.log(findNextSquare(625));
 // =========================================
-// 
+// Сумма чисел кратная 3/5
+// function solution(number){
+//   let sum = 0;
+//   for(let i = 0; i < number; i++){
+//     if(i % 3 === 0 && i % 5 === 0){
+//       console.log(sum += i);
+//     } else if(i % 3 === 0){
+//       console.log(sum += i);
+//     } else if (i % 5 === 0){
+//       console.log(sum += i);
+//     }
+//   }
+//   return sum;
+// }
+
+// console.log(solution(20)); // 
+// =====================================
+// сумма 1-чек в побитовом числе
+// var countBits = function(n) {
+//   let sum = 0;
+//   if(n < 0){
+//     n = -(n);
+//   }
+//   let bit = (n).toString(2);
+//   for(let i = 0; i < bit.length; i++){
+//     if(bit[i] === '1'){
+//       sum += 1;
+//     }
+//   }
+//   return sum;
+// };
+
+// console.log(countBits(384));
+// ===================================
+// сортировка по убыванию
+
+// function descendingOrder(n){
+//   let num = String(n);
+//   let arr = [];
+//   for(let i = 0; i < num.length; i++){
+//     arr.push(num[i]);
+//   }
+//   arr.sort(function(a, b) { return a - b; }).reverse();
+//   let result = Number(arr.join(''));
+//   return result
+// }
+// descendingOrder(12745);
+// =================================================
+// расстановка предложения по числовому порядку
+// const text = '4of Fo1r pe6ople g3ood th5e the2';
+// function order(words){
+//   let result = [];
+//   let arr = words.split(" ");
+//   for(let i = 0; i < arr.length; i++){
+//     let ward = arr[i];
+//     for(let k = 0; k < ward.length; k++){
+//       switch (ward[k]){
+//         case '1' : result[0] = arr[i];
+//         break;
+//         case '2' : result[1] = arr[i];
+//         break;
+//         case '3' : result[2] = arr[i];
+//         break;
+//         case '4' : result[3] = arr[i];
+//         break;
+//         case '5' : result[4] = arr[i];
+//         break;
+//         case '6' : result[5] = arr[i];
+//         break;
+//       }  
+//     }
+//   }
+//   return result.join(' ');  
+// }
+
+// console.log(order(text)); 
+// =======================================================
+// find simple number
+
+// function isPrime(num) {
+//   if(num === 1 || num === 0 || num < 0){
+//     return false;
+//   }
+//   if (num === 2 || num === 3 || num === 5 || num === 7){
+//     return true;
+//   }
+//   if(num % 2 == 0 || num % 3 == 0) {
+//     return false;
+//   }
+//   for(let i = 5, N = Math.sqrt(num); i <= N; i += 2){
+//     if(num % i == 0) return false;
+//   }
+//   return true;
+// }
+
+// console.log(isPrime(1004001));
+//========================================================
+// преобразование строки
+function duplicateEncode(word){
+  let arr = word.split(" ");
+  for(let i = 0; i < word.length; i++){
+    for (let j = 1; j  < word.length; j++){
+      if(arr[i] === arr[j]){
+        
+      }
+    } 
+  }
+}
