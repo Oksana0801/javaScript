@@ -276,13 +276,166 @@ console.log(disemvowel(string3));
 // console.log(isPrime(1004001));
 //========================================================
 // преобразование строки
-function duplicateEncode(word){
-  let arr = word.split(" ");
-  for(let i = 0; i < word.length; i++){
-    for (let j = 1; j  < word.length; j++){
-      if(arr[i] === arr[j]){
-        
-      }
-    } 
-  }
-}
+// const word = " ( ( )"; // ()()()
+// function duplicateEncode(word){
+//   let obj = {};
+//   let result = word.toLowerCase().split('');
+//   result.map(function(val){
+//     return obj[val] = !obj[val]? 1 : obj[val]++;
+//   })
+//   console.log(obj);
+//   console.log(result);
+//   for(let i = 0; i < result.length; i++){
+//     for(let key in obj){
+//       //console.log(key)
+//       if(result[i] === key) {
+//           if(obj[key] = 1){
+//           result[i] = '(';
+//         } else {
+//           result[i] = ')'; 
+//         }
+//       }
+//     }
+//   }
+//   return result.join('');
+// }
+// console.log(duplicateEncode(word));    //  РЕШЕНО !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// word = word.toLowerCase().split("");
+// 	var key = {}, result = "";
+// 	for (var i = 0; i < word.length; i++) {
+// 		if (key[word[i]] == undefined) key[word[i]] = 1;
+// 		else key[word[i]]++
+// 	}
+// 	for (var k = 0; k < word.length; k++) {
+// 		if (key[word[k]] == 1) result += "(" ;
+// 		else result += ")";
+// 	}
+// 	return result
+
+
+
+
+// ========================================================
+//  
+// function digPow(n, p){
+//   let num = String(n).split("");
+//   let result = 0;
+//   //console.log(num);
+//   //console.log(num.length);
+//   for(let i = 0; i < num.length; i++){
+//    num[i] = Number(num[i]);
+//    //console.log(num[i]);
+//    result += Math.pow(num[i], p);
+//    p++; 
+//   }
+//   if(result % n === 0){
+//     return result / n;
+//   }
+//   return -1;
+// }
+
+// console.log(digPow(46288, 3));
+// ============================================================
+// OBJECTis СИМПСОН КАЙЛ
+// if(!Object.is || true){
+// Object.is = function ObjectIs(v1, v2){
+//     //console.log(v1);
+//     //console.log(v2);  
+
+//     function negZerro (n){
+//       n = Number(n);
+//       return (n === 0) && (1/n === -Infinity);
+//     }
+    
+//     let v1NegZ = negZerro(v1);
+//     let v2NegZ = negZerro(v2);
+    
+//     function isNan(v){
+//       return v !== v;
+//     }
+//     let v1IsNaN = isNan(v1);
+//     let v2IsNaN = isNan(v2);
+
+//     if (v1NegZ !== v2NegZ) {
+//       return false;
+//     } else if (v1IsNaN && v2IsNaN) {
+//       return true;
+//     } else {
+//       return v1 === v2;
+//     }
+//   };
+// }
+
+// console.log(Object.is(42, 42) === true);
+// console.log(Object.is('foo', 'foo') === true);
+// console.log(Object.is(false, false) === true);
+// console.log(Object.is(null, null) === true);
+// console.log(Object.is(undefined, undefined) === true);
+// console.log(Object.is(NaN, NaN) === true);
+// console.log(Object.is(-0, -0) === true);
+// console.log(Object.is(0, 0) === true);
+// console.log(Object.is(-0, 0) === false); //b
+// console.log(Object.is(0, -0) === false); //b
+// console.log(Object.is(0, NaN) === false);
+// console.log(Object.is(NaN, 0) === false);
+// console.log(Object.is(42, '42') === false);
+// console.log(Object.is('42', 42) === false);
+//
+// ==============================================================
+// # HashTag
+
+//const text = "code" + " ".repeat(140) + "wars";
+//const text = " ".repeat(200);
+//let arrText = text.split(" ");
+
+// console.log(text);
+
+// function generateHashtag (str) {
+//   if (!str) {
+//     return false;
+//   } else {
+//     str = str.split(" ");
+//     let result = '#';
+//     for(let i = 0; i < str.length; i++){
+//       let word = str[i];
+//       if(!word){
+//         continue;
+//       }
+//       result += word[0].toUpperCase() + word.slice(1); 
+//     }
+//     if (result.length > 140 || !result || result == "#") return false;
+//     return result;
+//   }
+// }
+// console.log(generateHashtag(text));
+// 
+// =====================================================================================
+// 
+// Сумма длин интервалов, исключая повторения;
+// arr = [[ 2, 9 ], [ 2, 6 ], [ 2, 4 ], [ 2, 9 ], [ 2, 5 ]];
+// function sumIntervals(intervals){
+//   let array = [];
+//   for(let i = 0; i < intervals.length; i++){
+//     let range = intervals[i];
+//     let firstNum = range[0];
+//     let lastNum = range[range.length - 1];
+//     while(firstNum < lastNum){
+//       array.push(firstNum);
+//       firstNum++;
+//     }
+//   }
+//   let result = [];
+//   for (let num of array){
+//     if(!result.includes(num)){
+//       result.push(num);
+//     }
+//   }
+//   return result.length;
+// }
+
+// console.log(sumIntervals(arr));
+// 
+// ===================================================================
+// 
+// 
