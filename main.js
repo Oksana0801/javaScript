@@ -454,7 +454,7 @@ console.log(disemvowel(string3));
 // 
 // ================================================================
 // 
-
+//
 // function rgb(r,g,b){
 //   let arrRGB = [r, g, b];
 //   let result = [];
@@ -467,11 +467,11 @@ console.log(disemvowel(string3));
 //     item = item.toString(16);
 //     if(item < 10) item = '0' + item;
 //    if(item.length < 2) item += item;
-//    } 
+//    }
 //    result.push(item);
 //   }
-  
-//   return result.join('').toUpperCase(); 
+//
+//   return result.join('').toUpperCase();
 // }
 // console.log(rgb(274,12,180));
 // 
@@ -519,4 +519,4 @@ console.log(disemvowel(string3));
 //   console.log(formatDuration(15731080));
 // 
 // =====================================================================================
-// действительный порядок скобок
+// 
